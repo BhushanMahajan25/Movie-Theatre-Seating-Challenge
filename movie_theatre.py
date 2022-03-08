@@ -47,14 +47,14 @@ class MovieTheatre:
         else:
             return 1
 
-    def findKey(self, group_count):
+    def findEmptySeats(self, group_count):
         for key in self.unallocated_seats:
             if key >= group_count:
                 return key
         return -1
 
     def allocateSeats(self, rno:str, group_count:int) -> int:
-        key = self.findKey(group_count)
+        key = self.findEmptySeats(group_count)
         if key == -1:
             return -1
         row = self.unallocated_seats[key].popleft()
